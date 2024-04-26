@@ -1,13 +1,13 @@
 class ThemeSelector extends HTMLElement {
-  constructor() {
-    super();
-    this.attachShadow({
-      mode: 'open'
-    });
+	constructor() {
+		super();
+		this.attachShadow({
+			mode: 'open'
+		});
 
-    const style = document.createElement('style');
+		const style = document.createElement('style');
 
-    style.textContent = `
+		style.textContent = `
             :host {
             position: fixed;
             top: 0;
@@ -46,67 +46,67 @@ class ThemeSelector extends HTMLElement {
             background-color: var(--color);
             }
         `;
-    this.shadowRoot.appendChild(style);
-  }
+		this.shadowRoot.appendChild(style);
+	}
 
-  connectedCallback() {
-    let themes;
-    if (this.hasAttribute('themes')) {
-      themes = this.getAttribute('themes').split(',');
-    }
-    function setTheme(theme) {
-      themes.forEach((t) => document.body.classList.remove(t));
-      if (theme) {
-        document.body.classList.add(theme);
-      }
-    }
+	connectedCallback() {
+		let themes;
+		if (this.hasAttribute('themes')) {
+			themes = this.getAttribute('themes').split(',');
+		}
+		function setTheme(theme) {
+			themes.forEach((t) => document.body.classList.remove(t));
+			if (theme) {
+				document.body.classList.add(theme);
+			}
+		}
 
-    let defaultLightTheme, defaultDarkTheme, defaultTheme;
-    if (this.hasAttribute('defaultLightTheme')) {
-      defaultLightTheme = this.getAttribute('defaultLightTheme');
-    }
-    if (this.hasAttribute('defaultDarkTheme')) {
-      defaultDarkTheme = this.getAttribute('defaultDarkTheme');
-    }
-    if (this.hasAttribute('defaultTheme')) {
-      defaultTheme = this.getAttribute('defaultTheme');
-    }
-    themes.forEach((theme) => {
-      const button = document.createElement('button');
-      button.setAttribute('id', theme);
-      button.classList.add('theme-btn', theme);
-      button.style.backgroundImage = `url('/portfolio/images/thumbs/${theme}.webp')`;
+		let defaultLightTheme, defaultDarkTheme, defaultTheme;
+		if (this.hasAttribute('defaultLightTheme')) {
+			defaultLightTheme = this.getAttribute('defaultLightTheme');
+		}
+		if (this.hasAttribute('defaultDarkTheme')) {
+			defaultDarkTheme = this.getAttribute('defaultDarkTheme');
+		}
+		if (this.hasAttribute('defaultTheme')) {
+			defaultTheme = this.getAttribute('defaultTheme');
+		}
+		themes.forEach((theme) => {
+			const button = document.createElement('button');
+			button.setAttribute('id', theme);
+			button.classList.add('theme-btn', theme);
+			button.style.backgroundImage = `url('/portfolio/images/thumbs/${theme}.webp')`;
 
-      button.addEventListener('click', () => setTheme(theme));
+			button.addEventListener('click', () => setTheme(theme));
 
-      // const swatches = document.createElement('ul');
+			// const swatches = document.createElement('ul');
 
-      // swatches.classList.add('swatches');
-      // swatches.classList.add(theme);
+			// swatches.classList.add('swatches');
+			// swatches.classList.add(theme);
 
-      // Array.from({ length: 9 }).forEach((_, i) => {
-      // 	const swatch = document.createElement('li');
-      // 	swatch.classList.add('swatch');
-      // 	swatch.setAttribute('style', `--color: rgb(var(--color${i}));`);
-      // 	swatches.appendChild(swatch);
-      // });
-      // button.appendChild(swatches);
-      this.shadowRoot.appendChild(button);
-    });
-    // const dmtheme = themes[themes.length - 1]
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    // const prefersDark = false
-    const isDarkMode = localStorage.getItem('darkmode') === true;
-    const hardSetLightMode = window.matchMedia('(prefers-color-scheme: light)').matches;
+			// Array.from({ length: 9 }).forEach((_, i) => {
+			// 	const swatch = document.createElement('li');
+			// 	swatch.classList.add('swatch');
+			// 	swatch.setAttribute('style', `--color: rgb(var(--color${i}));`);
+			// 	swatches.appendChild(swatch);
+			// });
+			// button.appendChild(swatches);
+			this.shadowRoot.appendChild(button);
+		});
+		// const dmtheme = themes[themes.length - 1]
+		const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+		// const prefersDark = false
+		const isDarkMode = localStorage.getItem('darkmode') === true;
+		const hardSetLightMode = window.matchMedia('(prefers-color-scheme: light)').matches;
 
-    if (prefersDark || isDarkMode) {
-      document.body.classList.add('dark');
-      // setTheme('dark');
-    } else if (hardSetLightMode) {
-      document.body.classList.add('light');
-      // setTheme('light');
-    }
-    setTheme(defaultTheme);
-  }
+		if (prefersDark || isDarkMode) {
+			document.body.classList.add('dark');
+			// setTheme('dark');
+		} else if (hardSetLightMode) {
+			document.body.classList.add('light');
+			// setTheme('light');
+		}
+		setTheme(defaultTheme);
+	}
 }
 customElements.define('theme-selector', ThemeSelector);
