@@ -16,3 +16,16 @@ body {
 		text-shadow: 0 0 33px rgb(var(--foreground));
 	}
 }
+
+@font-face {
+	font-family: 'Argon';
+	src: url('/portfolio/fonts/MonaspaceArgon-Regular.woff');
+}
+@font-face {
+	font-family: 'Neon';
+	src: url('/portfolio/fonts/MonaspaceNeon-Regular.woff');
+}
+@font-face {
+	font-family: 'Xenon';
+	src: url('/portfolio/fonts/MonaspaceXenon-Regular.woff');
+}

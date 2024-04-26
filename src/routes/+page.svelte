@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-  import { base } from '$app/paths'
+	import { base } from '$app/paths';
 	import '$css/themes.css';
 	import '$css/css.css';
 	const themes = [
@@ -16,14 +16,16 @@
 		'masashi-wakui-104',
 		'masashi-wakui-105'
 	];
+	const fonts = ['Argon', 'Neon', 'Xenon'];
 	const randoTheme = themes[Math.floor(Math.random() * themes.length)];
+	const randoFont = fonts[Math.floor(Math.random() * fonts.length)];
 	onMount(async () => {
 		await import('$lib/theme-selector');
 	});
 </script>
 
 <div class="bg"></div>
-<main>
+<main style="--rando-font: {randoFont}">
 	<article>
 		<h3>a little</h3>
 		<h1>Portfolio</h1>
@@ -99,7 +101,7 @@
 		flex-direction: column;
 		justify-content: start;
 		align-items: center;
-		font-family: 'Monaspace Krypton';
+		font-family: var(--rando-font);
 		position: relative;
 		backdrop-filter: blur(10px);
 	}
