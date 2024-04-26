@@ -1,3 +1,7 @@
+/themes
+/build
+/.svelte-kit
+
 # Logs
 logs
 *.log
