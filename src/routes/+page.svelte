@@ -104,8 +104,9 @@
 			<div class="bonus">
 				<h2>Bonus Content for Scrollers</h2>
 				<p>
-					Some debate is currently going on about the darkness of the tint over some of the splash,
-					so I made this tool for my colleagues to play with the levels to find something they like.
+					Some debate is currently going on about the darkness of the tint over some of the splash
+					in the transcribe project, so I made this tool for my colleagues to play with the levels
+					to find something they like.
 				</p>
 				<a href="https://nick3white.github.io/opacity-contrast-checker/" target="_blank">
 					<img src="{base}/images/s-opacity.webp" alt="" />
@@ -140,24 +141,30 @@
 		bottom: 0;
 		left: 0;
 	}
+	article, .title-section {
+	background-image: var(--wallpaper);
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+
+	}
 	article {
-		margin-block: 22rem;
+
+		padding-block: 22rem;
+
 		width: min(555px, 90vw);
 	}
-	article,
+	.body-text,
 	.title-text {
 		background: rgba(var(--background), 0.87);
 		backdrop-filter: blur(10px) saturate(3.3);
 	}
 	.title-section {
-		background-image: var(--wallpaper);
-		background-position: center;
-		background-size: cover;
-		background-attachment: fixed;
-		height: 33rem;
+		height: 22rem;
 		// padding-block: 3rem;
 		position: sticky;
-		top: -22rem;
+		top: -11rem;
+		z-index: 10;
 	}
 	.title-text {
 		position: sticky;
