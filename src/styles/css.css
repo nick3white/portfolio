@@ -1,0 +1,18 @@
+body {
+	margin: 0;
+	&.dark {
+		--foreground: var(--color7);
+		--background: var(--color0);
+	}
+	&:not(.dark) {
+		--background: var(--color7);
+		--foreground: var(--color0);
+	}
+	& * {
+		box-sizing: border-box;
+	}
+	& h1,
+	h3 {
+		text-shadow: 0 0 33px rgb(var(--foreground));
+	}
+}
