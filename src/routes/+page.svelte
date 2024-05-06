@@ -1,21 +1,9 @@
 <script>
 	import { onMount } from 'svelte';
 	import { base } from '$app/paths';
+	import { themes } from '$lib';
 	import '$css/themes.css';
 	import '$css/css.css';
-	const themes = [
-		'This_Automatic_Eden',
-		'Neon_Nights',
-		'josan-gonzales',
-		'aoihana6',
-		'bg-palmtrees',
-		'bg-retrowallpaper',
-		'masashi-wakui-101',
-		'masashi-wakui-102',
-		'masashi-wakui-103',
-		'masashi-wakui-104',
-		'masashi-wakui-105'
-	];
 	const fonts = ['Argon', 'Neon', 'Xenon'];
 	const randoTheme = themes[Math.floor(Math.random() * themes.length)];
 	const randoFont = fonts[Math.floor(Math.random() * fonts.length)];
@@ -31,7 +19,7 @@
 			<div class="title-text">
 				<h4 class="title-top">a little</h4>
 				<h3 class="title">Portfolio</h3>
-				<h4 class="title-bottom">by</h4>
+				<h4 class="title-bottom">of work by</h4>
 				<h1 class="name">Nick White</h1>
 			</div>
 		</section>
@@ -92,21 +80,18 @@
 				<p>
 					And finally, something I'm both very excited about, but also very far from completing: a
 					rebuild of our Newberry Transcribe project. It's built in Svelte then ported to PHP to be
-					interwoven with the COTS software Omeka. The reason I'm sharing it is because of the home
-					page's splash. I'm quite proud of what I was able to accomplish with the layering to solve
+					interwoven with the COTS software Omeka.  I'm really proud of what I was able to accomplish with the layering to solve
 					the problem of handling title text transitioning from a dark background to a light one --
-					so make sure you scroll down. (As I said, it's far from finished, but that part is solid.)
+					which of course you can't see in a still image.
 				</p>
-				<a href="http://transcribe.newberry.org/ohmekas/s/transcribe/page/home" target="_blank">
 					<img src="{base}/images/s-transcrib3.webp" alt="" />
-				</a>
 			</div>
 			<div class="bonus">
 				<h2>Bonus Content for Scrollers</h2>
 				<p>
 					Some debate is currently going on about the darkness of the tint over some of the splash
 					in the transcribe project, so I made this tool for my colleagues to play with the levels
-					to find something they like.
+					to find something they like.  (It's actually a lot lighter now and it looks amazing.)
 				</p>
 				<a href="https://nick3white.github.io/opacity-contrast-checker/" target="_blank">
 					<img src="{base}/images/s-opacity.webp" alt="" />
